@@ -11,8 +11,8 @@
                     <form method="post">
                         <div class="form-group">
                             <label for="name">Nome</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
-                                placeholder="Nome da série" name='name'>
+                            <input type="text" value="<%= serie.name  %> " class="form-control" id="name"
+                                aria-describedby="nameHelp" placeholder="Nome da série" name='name'>
                             <small id="nameHelp" class="form-text text-muted">Campo para digitar o nome da série</small>
                             <% if(errors && errors.indexOf('name')>=0){ %>
                                 <small id="nameHelp" class="form-text text-muted">Digite o nome da serie</small>
@@ -22,8 +22,9 @@
                             <label for="status">Situação</label>
                             <select class="custom-select my-1 mr-sm-2" id="status" name="status">
                                 <% labels.forEach(situacao=> { %>
-                                    <option value="<%= situacao.id %>">
-                                        <%= situacao.name %>
+                                    <option value="<%= situacao.id %>" <% if(situacao.id===serie.status){ %>
+                                        selected <% } %>>
+                                            <%= situacao.name %>
                                     </option>
                                     <% }); %>
                             </select>

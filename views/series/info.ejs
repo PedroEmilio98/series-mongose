@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form method="post">
+                        <h2>Sobre</h2>
+                        <label for="name">Nome: </label>
+                        <%= serie.name %>
+                            <div class="form-group">
+                                <label for="status">Situação: </label>
+                                <% labels.forEach(situacao=> { %>
+                                    <% if(situacao.id===serie.status){ %>
+                                        <%= situacao.name %>
+                                            <% }}); %>
+                            </div>
+                            <textarea class="form-control" name="comentario"></textarea>
+                            <input type="submit" value="Adicionar Comentário">
+                    </form>
+                    <% serie.comments.forEach(comentario=>{ %>
+                        <div class="card">
+                            <%= comentario %>
+                        </div>
+                        <% }) %>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>

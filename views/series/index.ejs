@@ -12,10 +12,19 @@
                         <% series.forEach(serie=> { %>
                             <tr>
                                 <td>
-                                    <%= serie.name %>
+                                    <a href="/series/info/<%= serie._id  %>">
+                                        <%=serie.name %>
+                                            <a />
                                 </td>
                                 <td>
-                                    <%= serie.status %>
+                                    <% labels.forEach(label=> { %>
+                                        <% if (label.id===serie.status) { %>
+                                            <%= label.name %>
+                                                <% }}); %>
+                                </td>
+                                <td>
+                                    <a href="series/excluir/<%= serie._id  %> ">Excluir</a>
+                                    <a href="series/editar/<%= serie._id  %> ">Editar</a>
                                 </td>
                             </tr>
                             <% }); %>
