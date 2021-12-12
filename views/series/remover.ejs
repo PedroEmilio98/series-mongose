@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form method="post">
+                        <h2>Tem certeza de que deseja excluir? </h2>
+                        <label for="name">Nome: </label>
+                        <%= serie.name %>
+                            <div class="form-group">
+                                <label for="status">Situação: </label>
+                                <% labels.forEach(situacao=> { %>
+                                    <% if(situacao.id===serie.status){ %>
+                                        <%= situacao.name %>
+                                            <% }}); %>
+                            </div>
+                            <% serie.comments.forEach(comentario=>{ %>
+                                <div class="card">
+                                    <%= comentario %>
+                                </div>
+                                <% }) %>
+                                    <input type="submit" value="Excluir">
+                                    <input type="button" onclick="history.go(-1)" value="Voltar" />
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>

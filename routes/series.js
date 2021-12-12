@@ -15,7 +15,8 @@ const models = {
 router.get('/', seriesControllers.index.bind(null, models));
 router.get('/novaserie', seriesControllers.formCreate.bind(null, models));
 router.post('/novaserie', seriesControllers.create.bind(null, models));
-router.get('/excluir/:id', seriesControllers.remove.bind(null, models));
+router.get('/excluir/:id', seriesControllers.formRemove.bind(null, models));
+router.post('/excluir/:id', seriesControllers.remove.bind(null, models));
 router.get('/editar/:id', seriesControllers.formEdit.bind(null, models));
 router.post('/editar/:id', seriesControllers.edit.bind(null, models));
 router.get('/info/:id', seriesControllers.info.bind(null, models));

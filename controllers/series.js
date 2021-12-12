@@ -9,7 +9,6 @@ const labels = [
 const index = async ({ serie }, req, res) => {
     const docs = await serie.find({});
     res.render('series/index', { series: docs, labels });
-
 };
 
 
@@ -57,6 +56,12 @@ const addComment = async ({ serie }, req, res) => {
     res.redirect('/series/info/' + req.params.id);
 }
 
+
+const formRemove = async ({ serie }, req, res) => {
+    const serieRemove = await serie.findOne({ _id: req.params.id });
+    res.render('series/remover', { serie: serieRemove, labels });
+}
+
 const remove = async ({ serie }, req, res) => {
     await serie.deleteOne({ _id: req.params.id });
     res.redirect('/series');
@@ -71,5 +76,6 @@ module.exports = {
     formEdit,
     edit,
     info,
-    addComment
+    addComment,
+    formRemove
 }
